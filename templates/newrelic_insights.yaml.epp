@@ -1,0 +1,4 @@
+# managed by puppet
+---
+"account_id" : "<%= $puppet2newrelic::account_id %>"
+"insights_key" : "<%= $puppet2newrelic::insights_key %>"
