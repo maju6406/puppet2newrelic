@@ -47,12 +47,12 @@ Puppet::Reports.register_report(:newrelic_insights) do
       'report_format' => report_format,
       'status' => status,
       'transaction_uuid' => transaction_uuid,
-      'metrics.time.config_retrieval' => metrics.time.config_retrieval,
-      'metrics.time.fact_generation' => metrics.time.fact_generation,
-      'metrics.time.catalog_application' => metrics.time.catalog_application,
-      'metrics.time.total' => metrics.time.total,               
-      'metrics.resources.total' => metrics.resources.total,               
-      'metrics.changes.total' => metrics.changes.total,                           
+      'metrics.time.config_retrieval' => metrics['time']['config_retrieval'],
+      'metrics.time.fact_generation' => metrics['time']['fact_generation'],
+      'metrics.time.catalog_application' => metrics['time']['catalog_application'],
+      'metrics.time.total' => metrics['time']['total'],               
+      'metrics.resources.total' => metrics['resources']['total'],               
+      'metrics.changes.total' => metrics['changes']['total'],                           
     }
 
     Puppet.info "Submitting report to New Relic at #{get_insights_url()}"
