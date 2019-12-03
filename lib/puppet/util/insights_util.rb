@@ -32,8 +32,10 @@ module Puppet::Util::Insights_util
 
   def submit_request(body)
     http = create_http()
-    insights_key = settings['account_id'] || raise(Puppet::Error, 'Must provide account_id parameter to New Relic class')
+    insights_key = settings['insights_key'] || raise(Puppet::Error, 'Must provide account_id parameter to New Relic class')
     req = Net::HTTP::Post.new(@uri.path.to_str)
+    Puppet.info "insights_key: #{insights_key}"    
+    Puppet.info "account_id  : #{settings['account_id']}"        
     req.add_field('X-Insert-Key', "#{insights_key}")
     req.add_field('Content-Type', 'application/json')
     req.content_type = 'application/json'
