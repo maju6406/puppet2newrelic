@@ -2,8 +2,8 @@
 # note if you manage enable_reports, it will default to puppetdb,puppet2newrelic
 # if you wish to add other reports, you can do so with the reports param
 class puppet2newrelic (
-  String $url,
-  String $token,
+  String $account_id,
+  String $insights_key,
   Boolean $enable_reports = false,
   String $reports = 'puppetdb,newrelic_insights',
 ) {
