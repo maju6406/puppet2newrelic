@@ -38,7 +38,10 @@ module Puppet::Util::Insights_util
     req.add_field('Content-Type', 'application/json')
     req.content_type = 'application/json'
     req.body = body.to_json
-    http.request(req)
+    Puppet.info "Request Body: #{req.body}"    
+    response = http.request(req)
+    Puppet.info "Response Code: #{response.code}"
+    Puppet.info "Response Body: #{response.body}"    
   end
 
   def store_event(event)
