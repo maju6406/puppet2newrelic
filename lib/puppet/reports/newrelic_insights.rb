@@ -28,7 +28,7 @@ Puppet::Reports.register_report(:newrelic_insights) do
     }
 
     event = {
-      "eventType":"PuppetEvent",
+      "eventType" => "PuppetEvent",
       'host' => host,
       'time' => epoch,
       'cached_catalog_status' =>  cached_catalog_status,
