@@ -28,7 +28,7 @@ Puppet::Reports.register_report(:newrelic_insights) do
     }
 
     event = {
-      "eventType" => "PuppetEvent",
+      'eventType' => 'PuppetEvent',
       'host' => host,
       'time' => epoch,
       'cached_catalog_status' =>  cached_catalog_status,
@@ -50,12 +50,12 @@ Puppet::Reports.register_report(:newrelic_insights) do
       'metrics.time.config_retrieval' => metrics['time']['config_retrieval'],
       'metrics.time.fact_generation' => metrics['time']['fact_generation'],
       'metrics.time.catalog_application' => metrics['time']['catalog_application'],
-      'metrics.time.total' => metrics['time']['total'],               
-      'metrics.resources.total' => metrics['resources']['total'],               
-      'metrics.changes.total' => metrics['changes']['total'],                           
+      'metrics.time.total' => metrics['time']['total'],
+      'metrics.resources.total' => metrics['resources']['total'],
+      'metrics.changes.total' => metrics['changes']['total'],
     }
 
-    Puppet.info "Submitting report to New Relic at #{get_insights_url()}"
+    Puppet.info "Submitting report to New Relic at #{retrieve_insights_url}"
     submit_request event
     if record_event
       store_event event
