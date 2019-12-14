@@ -19,7 +19,7 @@ module Puppet::Util::Insights_util
   end
 
   def create_http
-    insights_url = get_insights_url()
+    insights_url = retrieve_insights_url
     @uri = URI.parse(insights_url)
     timeout = settings['timeout'] || '1'
     http = Net::HTTP.new(@uri.host, @uri.port)
@@ -31,19 +31,19 @@ module Puppet::Util::Insights_util
   end
 
   def submit_request(body)
-    http = create_http()
+    http = create_http
     insights_key = settings['insights_key'] || raise(Puppet::Error, 'Must provide account_id parameter to New Relic class')
     req = Net::HTTP::Post.new(@uri.path.to_str)
-    Puppet.info "insights_key: #{insights_key}"    
-    Puppet.info "account_id  : #{settings['account_id']}"        
-    req.add_field('X-Insert-Key', "#{insights_key}")
+    Puppet.info "insights_key: #{insights_key}"
+    Puppet.info "account_id  : #{settings['account_id']}"
+    req.add_field('X-Insert-Key', insights_key.to_s)
     req.add_field('Content-Type', 'application/json')
     req.content_type = 'application/json'
     req.body = body.to_json
-    Puppet.info "Request Body: #{req.body}"    
+    Puppet.info "Request Body: #{req.body}"
     response = http.request(req)
     Puppet.info "Response Code: #{response.code}"
-    Puppet.info "Response Body: #{response.body}"    
+    Puppet.info "Response Body: #{response.body}"
   end
 
   def store_event(event)
@@ -74,9 +74,9 @@ module Puppet::Util::Insights_util
 
   private
 
-  def get_insights_url
+  def retrieve_insights_url
     settings['account_id'] || raise(Puppet::Error, 'Must provide the New Relic Account ID')
-    url = "https://insights-collector.newrelic.com/v1/accounts/" + settings['account_id'] + "/events"
+    url = 'https://insights-collector.newrelic.com/v1/accounts/' + settings['account_id'] + '/events'
     url
   end
 
