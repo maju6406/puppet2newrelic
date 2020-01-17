@@ -7,31 +7,48 @@
   "source": "https://github.com/maju6406/puppet2newrelic",
   "project_page": "https://github.com/maju6406/puppet2newrelic",
   "issues_url": "https://github.com/maju6406/puppet2newrelic/issues",
-  "dependencies": [],
+  "dependencies": [
+
+  ],
   "operatingsystem_support": [
     {
       "operatingsystem": "CentOS",
-      "operatingsystemrelease": ["7", "6"]
+      "operatingsystemrelease": [
+        "7",
+        "6"
+      ]
     },
     {
       "operatingsystem": "OracleLinux",
-      "operatingsystemrelease": ["7"]
+      "operatingsystemrelease": [
+        "7"
+      ]
     },
     {
       "operatingsystem": "RedHat",
-      "operatingsystemrelease": ["7", "6"]
+      "operatingsystemrelease": [
+        "7",
+        "6"
+      ]
     },
     {
       "operatingsystem": "Scientific",
-      "operatingsystemrelease": ["7", "6"]
+      "operatingsystemrelease": [
+        "7",
+        "6"
+      ]
     },
     {
       "operatingsystem": "Debian",
-      "operatingsystemrelease": ["8"]
+      "operatingsystemrelease": [
+        "8"
+      ]
     },
     {
       "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": ["16.04"]
+      "operatingsystemrelease": [
+        "16.04"
+      ]
     }
   ],
   "requirements": [
@@ -40,7 +57,7 @@
       "version_requirement": ">= 4.7.0 < 7.0.0"
     }
   ],
-  "pdk-version": "1.10.0",
+  "pdk-version": "1.15.0",
   "template-url": "https://github.com/puppetlabs/pdk-templates#master",
-  "template-ref": "heads/master-0-g2b33205"
+  "template-ref": "heads/master-0-g5676b3f"
 }
